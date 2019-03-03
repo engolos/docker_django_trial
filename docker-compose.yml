@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+        django:
+                container_name: engin_django
+                image: python:3.6.8
+                ports:
+                        - "8000:8000"
+                volumes:
+                        - "./engolos/:/usr/src"
+                working_dir: /usr/src/
+                command: bash -c "pip install --upgrade pip && pip install -r requirements.txt && python manage.py runserver 0.0.0.0:8000"
